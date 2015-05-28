@@ -21,16 +21,15 @@ public class StockDateSumReducer extends MapReduceBase
 	try
 	{
 		double sum = 0;
-    	while (values.hasNext()) {
-    		DoubleWritable value = (DoubleWritable) values.next();
-      		sum += value.get(); // process value
-    	}
+    		while (values.hasNext()) {
+    			DoubleWritable value = (DoubleWritable) values.next();
+      			sum += value.get(); // process value
+    		}
 
-    	output.collect(key, new DoubleWritable(sum));
+    		output.collect(key, new DoubleWritable(sum));
 	}
 	catch(Exception ex)
 	{
-		System.out.println("Error found:" + "1");
 		System.out.println("Error found:" + ex.getStackTrace()[0]);
 	}
   }
